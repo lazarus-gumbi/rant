@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>rant</title>
+</head>
+
+<body>
+    <section class="navigation">
+        <div class="nav-logo">
+            <a href="/"><img src="{{url_for('static', filename='rant.svg')}}" alt="logo" srcset=" ">
+            </a>
+        </div>
+        <div class="nav-link">
+            <a href="/">home</a>
+        </div>
+    </section>
+
+    <section class="review-section">
+        <div class="reviews">
+            <div class="post">
+                <form class="post-form" method="POST" action="/create_post" >
+                    <div class="form-group"><label for="name">company name:</label>
+                        <input type="text" name="name" id="name" required="true">
+                    </div>
+                    <div class="form-group"><label for="branch">branch:</label>
+                        <input type="text" name="branch" id="branch" required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="detail">details</label>
+                        <textarea name="details" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <input type="submit" class="post-btn" value="post">
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="footer">
+        <small>
+            ©rant2021
+        </small>
+    </div>
+</body>
+
+</html>

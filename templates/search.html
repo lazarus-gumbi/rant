@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>rant</title>
+</head>
+<body>
+    <section class="navigation">
+        <div class="nav-logo">
+            <a href="/"><img src="{{url_for('static', filename='rant.svg')}}" alt="logo" srcset=" ">
+        </a></div>
+        <div class="nav-link">
+            <a href="/post_review">post review</a>
+        </div>
+    </section>
+    
+    <section class="review-section">
+        <div class="reviews">
+            
+            <div class="review-number">
+                <h1 class="number">
+                    {{business}} : {{num_reviews}} review(s)
+                </h1>
+
+                <p class="cta">
+                    Click the button below to download review report.
+                </p>
+
+                <a href="/download_report" class="download-report">
+                    download
+                </a>
+            </div>
+            
+        </div>
+    </section>
+    <section class="review-section">
+        <div class="reviews">
+            {%for review in reviews[::-1]%}
+            <div class="review-card">
+                
+                <div class="review-head">
+                    <div class="review-title">
+                        {{review.name}}
+                    </div>
+                    <div class="review-subtitle">
+                        <div class="branch">{{review.branch}}</div>
+                        <div class="date">{{review.date_posted.strftime('%d-%m-%Y')}}</div>
+                    </div>
+                </div>
+                <div class="review-body">
+                    {{review.review}}    
+                </div>
+                
+            </div>
+            {%endfor%}
+            
+        </div>
+    </section>
+    <div class="footer">
+        <small>
+            ©rant2021
+        </small>
+    </div>
+</body>
+</html>

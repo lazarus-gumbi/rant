@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: azure;
+}
+
+.nav-logo img{
+    width: 8rem;
+}
+
+.nav-logo img:hover{
+    width: 9rem;
+}
+
+.navigation{
+    padding: 10px;
+    height: 10vh;
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.021);
+}
+
+.nav-link{
+    padding-right: 2rem;
+}
+
+.nav-link a{
+    text-decoration: none;
+    color: blue;
+    border: 3px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-link a:hover{
+    background-color: blue;
+    color: white;
+    
+}
+
+.search-section{
+    height: 10vh;
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.search-entry{
+    height: 1.5rem;
+    border: 2px solid blue;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 0px;
+    border-radius: 5px;
+}
+
+.search-btn{
+    color: blue;
+    height: 1.8rem;
+    border: 2px solid blue; 
+    padding: 0px 10px 0px 10px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.search-btn:hover{
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+
+.review-section{
+    background-color: azure;
+    padding: 2rem 10rem 2rem 10rem;
+}
+
+.reviews{
+    padding: 10px;
+}
+
+.review-title{
+    font-size: 1.5rem;
+    text-transform: lowercase;
+}
+
+.review-subtitle{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+    font-size: 1rem;
+    opacity: .8;
+    text-transform: lowercase;
+}
+
+.review-body{
+    text-transform: lowercase;
+}
+
+.review-card{
+    background-color: rgba(0, 38, 253, 0.692);
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid rgb(0, 0, 0);
+    border-right: 1px solid rgba(0, 0, 0, 0.397);
+}
+
+.review-number{
+    color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number{
+    font-size: 4rem;
+    padding: 2rem;
+}
+
+.cta{
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.download-report{
+    margin-top: 1rem;
+    border: 3px solid blue;
+    padding: 10px;
+    text-decoration: none;
+    color: blue;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.download-report:hover{
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+
+.post-form{
+    color: blue;
+    width: 50%;
+}
+
+.post{
+    display: flex;
+    justify-content: center;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.post-form input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 2rem;
+    border: 3px solid blue;
+    border-radius: 5px;
+}
+
+.post-btn{
+    color: blue;
+    font-size: 1rem;
+    height: 2.5rem;
+    padding: 0px 10px 0px 10px;
+
+}
+
+.post-btn:hover{
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+
+textarea{
+    margin-top: 10px;
+    border: 3px solid blue;
+    border-radius: 5px;
+}
+
+.footer{
+    text-align: center;
+    opacity: .5;
+}
+
+.pages{
+    opacity: .5;
+    font-size: .7rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+
+.text-center{
+    text-align: center;
+    padding: 15px;
+    padding-bottom: 1.5rem;
+
+}
+
+.btn{
+    text-decoration: none;
+    margin: 0rem .3rem ;
+    padding: 3px;
+    border: 2px solid blue;
+    text-align: center;
+    font-size: 1rem;
+    color: blue;
+    border-radius: 5px;
+    
+}
+
+.btn-active{
+    background-color: blue;
+    color: white;
+}
+
+@media screen and (max-width: 800px){
+
+    .btn{
+        font-size: .9rem;
+    }
+
+   .review-section{
+       padding: 2rem 5rem 2rem 5rem;;
+   }
+
+   .number{
+    font-size: 3rem;
+    }
+
+    .post-form{
+        width: 65%;
+    }
+    
+}
+
+@media screen and (max-width: 580px){
+
+   .review-section{
+       padding: 10px;
+   }
+
+   .post-form{
+       padding-top: 2rem;
+       width: 90%;
+   }
+
+   .number{
+       font-size: 2rem;
+       padding: 1rem;
+   }
+
+   .cta{
+       font-size: 1rem;
+   }
+
+   .review-body{
+       font-size: 1rem;
+   }
+
+   .nav-link{
+       padding-right: 10px;
+   }
+
+   .review-title{
+       font-size: 1.2rem;
+   }
+
+   .review-subtitle , .review-subtitle{
+        font-size: .8rem;
+   }
+
+   .nav-logo{
+       width: 6rem;
+   }
+
+   .search-form{
+       display: flex;
+       justify-content: space-between;
+   }
+    
+}
+
+
+

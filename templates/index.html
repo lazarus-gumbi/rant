@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
+    <title>rant</title>
+</head>
+<body>
+    <section class="navigation">
+        <div class="nav-logo">
+            <a href="/"><img src="{{url_for('static', filename='rant.svg')}}" alt="logo" srcset=" ">
+        </a></div>
+        <div class="nav-link">
+            <a href="/post_review">post review</a>
+        </div>
+    </section>
+    <section class="search-section">
+        <form class="search-form" method="POST" action="/search">
+            <input type="text" required="true" class="search-entry" name="business" placeholder="business name...">
+            <input type="submit" class="search-btn" value="search">
+        </form>
+    </section>
+    <section class="review-section">
+        <div class="reviews">
+            {%for review in reviews.items[::-1]%}
+            <div class="review-card">
+                
+                <div class="review-head">
+                    <div class="review-title">
+                        {{review.name}}
+                    </div>
+                    <div class="review-subtitle">
+                        <div class="branch">{{review.branch}}</div>
+                        <div class="date">{{review.date_posted.strftime('%d-%m-%Y')}}</div>
+                    </div>
+                </div>
+                <div class="review-body">
+                    {{review.review}}    
+                </div>
+                
+            </div>
+            {%endfor%}
+            
+        </div>
+    </section>
+    <!-- Pagination Links-->
+<div class="text-center">
+    <a href="{{ url_for('home', page=reviews.prev_num) }}"
+       class="btn btn-outline-dark 
+       {% if reviews.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+<!-- Loop through the number of pages to display a link for each-->
+    {% for page_num in reviews.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+            {% if reviews.page == page_num %}
+            <a href="{{ url_for('home', page=page_num) }}"
+               class="btn btn-active">
+                {{ page_num }}
+            </a>
+            {% else %}
+            <a href="{{ url_for('home', page=page_num) }}"
+               class="btn btn-outline-dark">
+                {{ page_num }}
+            </a>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('home', page=reviews.next_num) }}"
+       class="btn 
+       {% if reviews.page == reviews.pages %}disabled{% endif %}">
+        &raquo;
+    </a>
+</div>
+<p class="pages">
+   page {{ reviews.page }} of {{ reviews.pages }}
+</p>
+</body>
+</html>
